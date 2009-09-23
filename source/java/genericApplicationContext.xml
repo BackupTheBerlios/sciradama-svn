@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:plugins="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <import resource="hibernateContext.xml" />
+
+    <import resource="dbConfigurationContext.xml" />
+
+    <bean id="data-source" factory-bean="db-configuration-context" factory-method="getDataSource" />
+
+    <bean id="transaction-manager"
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="hibernate-session-factory" />
+    </bean>
+
+    <bean id="sql-script-provider" class="ch.systemsx.cisd.dbmigration.DBMigrationEngine"
+        factory-method="createOrMigrateDatabaseAndGetScriptProvider">
+        <constructor-arg ref="db-configuration-context" />
+        <constructor-arg>
+            <bean
+                class="ch.systemsx.cisd.openbis.generic.server.dataaccess.db.DatabaseVersionHolder"
+                factory-method="getDatabaseVersion" />
+        </constructor-arg>
+    </bean>
+
+    <bean id="dao-factory"
+        class="ch.systemsx.cisd.openbis.generic.server.dataaccess.db.DAOFactory">
+        <constructor-arg ref="db-configuration-context" />
+        <constructor-arg ref="hibernate-session-factory" />
+    </bean>
+    
+    <bean id="dss-factory" class="ch.systemsx.cisd.openbis.generic.server.business.DataStoreServiceFactory"/>
+
+    <bean id="authentication-service"
+        class="ch.systemsx.cisd.openbis.generic.server.AuthenticationServiceHolder">
+        <constructor-arg ref="${authentication-service}" />
+    </bean>
+
+    <bean id="session-manager" class="ch.systemsx.cisd.authentication.DefaultSessionManager">
+        <constructor-arg>
+            <bean class="ch.systemsx.cisd.openbis.generic.server.SessionFactory" />
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="ch.systemsx.cisd.openbis.generic.server.LogMessagePrefixGenerator" />
+        </constructor-arg>
+        <constructor-arg ref="authentication-service" />
+        <constructor-arg>
+            <bean class="ch.systemsx.cisd.common.servlet.RequestContextProviderAdapter">
+                <constructor-arg ref="request-context-provider" />
+            </bean>
+        </constructor-arg>
+        <!-- The time after which an inactive session is expired by the service (in minutes). -->
+        <constructor-arg value="${session-timeout}" />
+    </bean>
+
+    <bean id="common-business-object-factory"
+        class="ch.systemsx.cisd.openbis.generic.server.CommonBusinessObjectFactory">
+        <constructor-arg ref="dao-factory" />
+        <constructor-arg ref="dss-factory" />
+    </bean>
+
+    <bean id="last-modification-state"
+          class="ch.systemsx.cisd.openbis.generic.shared.basic.dto.LastModificationState" />
+          
+    <!-- 
+        // Common
+    -->
+    
+    <bean id="common-server" class="ch.systemsx.cisd.openbis.generic.server.CommonServer">
+        <constructor-arg ref="authentication-service" />
+        <constructor-arg ref="session-manager" />
+        <constructor-arg ref="dao-factory" />
+        <constructor-arg ref="common-business-object-factory" />
+        <constructor-arg ref="last-modification-state" />
+    </bean>
+
+    <bean id="common-service" class="ch.systemsx.cisd.openbis.generic.client.web.server.CommonClientService">
+        <constructor-arg ref="common-server" />
+        <constructor-arg ref="request-context-provider" />
+        <property name="dataStoreBaseURL" value="${data-store-server-base-url}"/>
+        <property name="cifexURL" value="${cifex-url}"/>
+        <property name="cifexRecipient" value="${cifex-recipient}"/>
+    </bean>
+    
+    <!-- 
+        // ETL Service with interceptors for translating results
+    -->
+    
+    <bean id="etl-service" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <list>
+                <value>ch.systemsx.cisd.openbis.generic.shared.IETLLIMSService</value>
+            </list>
+        </property>
+        <property name="target">
+            <bean class="ch.systemsx.cisd.openbis.generic.server.ETLService">
+                <constructor-arg ref="session-manager" />
+                <constructor-arg ref="dao-factory" />
+                <constructor-arg ref="common-business-object-factory" />
+                <constructor-arg ref="dss-factory" />
+            </bean>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>exception-translator</value>
+                <value>hibernate-transformer</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="exception-translator"
+        class="ch.systemsx.cisd.common.spring.ServiceExceptionTranslator">
+        <property name="packagesNotMasqueraded">
+            <list>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="hibernate-transformer" class="ch.systemsx.cisd.openbis.generic.server.util.HibernateTransformer" />
+    
+    <!-- 
+        // Transaction
+    -->
+
+    <!-- 
+        // This discovers on-the-fly all <code>org.springframework.aop.Advisor</code> implementations.
+    -->
+    <bean id="bean-post-processor"
+        class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" />
+
+    <bean class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">
+        <property name="transactionInterceptor" ref="transaction-interceptor" />
+    </bean>
+
+    <bean id="transaction-interceptor"
+        class="org.springframework.transaction.interceptor.TransactionInterceptor">
+        <property name="transactionManager" ref="transaction-manager" />
+        <property name="transactionAttributeSource">
+            <bean
+                class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource" />
+        </property>
+    </bean>
+
+    <!-- 
+        // Database Last Modification Monitor
+        // This advice will auto-magically used as an interceptor for server methods (e.g. ICommonServer)
+    -->
+    
+    <bean class="ch.systemsx.cisd.openbis.generic.server.DatabaseLastModificationAdvisor">
+        <constructor-arg ref="last-modification-state" />
+    </bean>
+
+    <!-- 
+        // Authorization
+    -->
+
+    <bean class="ch.systemsx.cisd.openbis.generic.server.authorization.AuthorizationAdvisor">
+        <constructor-arg ref="${authorization-component-factory}" />
+    </bean>
+
+    <bean id="no-authorization"
+        class="ch.systemsx.cisd.openbis.generic.server.authorization.NoAuthorization" />
+
+    <bean id="active-authorization"
+        class="ch.systemsx.cisd.openbis.generic.server.authorization.ActiveAuthorization">
+        <constructor-arg ref="dao-factory" />
+    </bean>
+
+    <!-- 
+        // Logging
+    -->
+
+    <bean class="ch.systemsx.cisd.common.spring.LogAdvisor" />
+
+    <!--
+        // Plugins
+    -->
+
+    <plugins:annotation-config />
+
+    <plugins:component-scan base-package="ch.systemsx.cisd.openbis.plugin">
+        <plugins:exclude-filter type="annotation"
+            expression="org.springframework.stereotype.Controller" />
+    </plugins:component-scan>
+
+    <bean class="ch.systemsx.cisd.openbis.generic.server.plugin.SampleServerPluginRegistry" factory-method="getInstance" /> 
+    
+    <bean class="ch.systemsx.cisd.openbis.generic.server.plugin.DataSetServerPluginRegistry" factory-method="getInstance" /> 
+</beans>

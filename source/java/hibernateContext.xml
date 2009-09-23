@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!--
+        // Hibernate
+    -->
+
+    <bean id="hibernate-session-factory"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+        depends-on="sql-script-provider, hibernate-search-context">
+        <property name="dataSource">
+            <ref bean="data-source" />
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.DatabaseInstancePE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.DataTypePE</value>
+
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.GroupPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.PersonPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.ProjectPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.RoleAssignmentPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.InvalidationPE</value>
+
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.FileFormatTypePE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.LocatorTypePE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.DataSetTypePE</value>
+
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.VocabularyPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.VocabularyTermPE</value>
+
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.PropertyTypePE</value>
+
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.MaterialTypePE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.ExperimentTypePE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.SampleTypePE</value>
+
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.SampleTypePropertyTypePE</value>
+                <value>
+                    ch.systemsx.cisd.openbis.generic.shared.dto.MaterialTypePropertyTypePE
+                </value>
+                <value>
+                    ch.systemsx.cisd.openbis.generic.shared.dto.ExperimentTypePropertyTypePE
+                </value>
+
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.MaterialPropertyPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.SamplePropertyPE</value>
+
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.AttachmentPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.AttachmentContentPE</value>
+
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.MaterialPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.DataStorePE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.DataStoreServicePE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.SamplePE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.DataPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.ExternalDataPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.EventPE</value>
+
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.ExperimentPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.ExperimentPropertyPE</value>
+
+
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.ExperimentPE</value>
+                
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.DataSetPropertyPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.DataSetTypePropertyTypePE</value>
+                
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.AttachmentHolderPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.AuthorizationGroupPE</value>
+                <value>ch.systemsx.cisd.openbis.generic.shared.dto.FilterPE</value>
+            </list>
+        </property>
+        <!-- 
+            Note that for all these properties you do not have to define a new property in the
+            'service.properties' file. You might just use the System properties.
+        -->
+        <property name="hibernateProperties">
+            <props>
+                <!-- Set this to "true" in order to enable the second-level cache. --> 
+                    <prop key="hibernate.cache.use_second_level_cache">false</prop>
+                <prop key="hibernate.cache.provider_class">
+                    org.hibernate.cache.EhCacheProvider
+                </prop>
+                <prop key="hibernate.max_fetch_depth">4</prop>
+                <prop key="hibernate.search.default.directory_provider">
+                    org.hibernate.search.store.FSDirectoryProvider
+                </prop>
+                <prop key="hibernate.search.default.indexBase">${hibernate.search.index-base}</prop>
+                <!-- Automatic optimization -->
+                <prop key="hibernate.search.default.optimizer.operation_limit.max">1000</prop>
+                <prop key="hibernate.search.default.optimizer.transaction_limit.max">100</prop>
+                <prop key="hibernate.search.worker.batch_size">${hibernate.search.batch-size}</prop>
+                <prop key="hibernate.search.worker.execution">${hibernate.search.worker.execution}</prop>
+                <prop key="hibernate.search.analyzer">ch.systemsx.cisd.openbis.generic.server.dataaccess.db.search.SearchAnalyzer</prop>
+                <!-- Disabling Hibernate Search. Possible values are [true, false].
+                    <prop key="hibernate.search.autoregister_listeners">false</prop>
+                -->
+                <!-- Disabling automatic indexing. Possible values are [event, manual].
+                    <prop key="hibernate.search.indexing_strategy">manual</prop>
+                -->
+                <!--  Uncomment this for debugging the Hibernate sql queries
+                    <prop key="hibernate.show_sql">true</prop>
+                    <prop key="hibernate.format_sql">true</prop>
+                    <prop key="hibernate.use_sql_comments">true</prop>
+                -->
+            </props>
+        </property>
+        <property name="lobHandler">
+            <bean class="org.springframework.jdbc.support.lob.DefaultLobHandler" />
+        </property>
+        <property name="entityInterceptor">
+            <bean class="ch.systemsx.cisd.openbis.generic.server.dataaccess.db.LockSampleModificationsInterceptor"/>
+        </property>
+    </bean>
+
+    <!--
+        // Hibernate Search
+    -->
+
+    <bean id="hibernate-search-context"
+        class="ch.systemsx.cisd.openbis.generic.server.dataaccess.db.search.HibernateSearchContext">
+        <property name="indexBase" value="${hibernate.search.index-base}" />
+        <property name="indexMode" value="${hibernate.search.index-mode}" />
+        <property name="batchSize" value="${hibernate.search.batch-size}" />
+    </bean>
+
+    <bean id="full-text-indexer"
+        class="ch.systemsx.cisd.openbis.generic.server.dataaccess.db.search.FullTextIndexerRunnable">
+        <constructor-arg ref="hibernate-session-factory" />
+        <constructor-arg ref="hibernate-search-context" />
+    </bean>
+
+    <bean class="org.springframework.scheduling.timer.TimerFactoryBean">
+        <property name="scheduledTimerTasks">
+            <list>
+                <bean class="org.springframework.scheduling.timer.ScheduledTimerTask">
+                    <property name="delay" value="0" />
+                    <property name="runnable" ref="full-text-indexer" />
+                </bean>
+            </list>
+        </property>
+        <property name="daemon" value="true" />
+    </bean>
+
+</beans>
