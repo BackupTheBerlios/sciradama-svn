@@ -34,7 +34,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.application.ICallbackL
  * method {@link #finish(int)} a timeout will be specified after which the test will be terminated
  * independent whether all commands have been executed or not. In the later case the test fails.
  * 
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public class RemoteConsole
 {

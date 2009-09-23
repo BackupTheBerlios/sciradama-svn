@@ -25,7 +25,7 @@ import ch.systemsx.cisd.openbis.generic.shared.basic.dto.Person;
 /**
  * Extends {@link AbstractProperty} with methods for {@link Person}
  * 
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public class Property extends AbstractProperty<CheckExperiment>
 {

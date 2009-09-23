@@ -30,7 +30,7 @@ import com.extjs.gxt.ui.client.widget.grid.Grid;
  * Command for checking the content (i.e. <code>ListStore</code>) of a table (i.e. <code>Grid</code>
  * ). It uses a fluent API approach for its methods to prepare expectations.
  * 
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public class CheckTableCommand extends AbstractDefaultTestCommand
 {

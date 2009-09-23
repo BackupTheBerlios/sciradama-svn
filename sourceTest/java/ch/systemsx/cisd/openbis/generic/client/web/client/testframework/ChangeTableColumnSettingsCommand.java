@@ -30,7 +30,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 /**
  * {@link ITestCommand} which allows to modify column settings of a {@link Grid}.
  *
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public class ChangeTableColumnSettingsCommand extends AbstractDefaultTestCommand
 {

@@ -26,7 +26,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.application.AbstractAs
  * first one. Thus, a piggy-back command behaves like the first command with an additional execution
  * of a carried-on command (i.e. the second command).
  * 
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public class PiggyBackCommand extends AbstractDefaultTestCommand
 {

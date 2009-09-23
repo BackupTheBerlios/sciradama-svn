@@ -93,7 +93,7 @@ import ch.systemsx.cisd.openbis.generic.shared.translator.PersonTranslator;
 /**
  * Test cases for corresponding {@link CommonServer} class.
  * 
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public final class CommonServerTest extends AbstractServerTestCase
 {

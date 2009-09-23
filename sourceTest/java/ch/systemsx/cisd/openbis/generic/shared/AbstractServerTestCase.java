@@ -70,7 +70,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.Session;
 /**
  * An <i>abstract</i> test infrastructure for {@link IServer} implementations.
  * 
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public abstract class AbstractServerTestCase extends AssertJUnit
 {

@@ -26,7 +26,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.testframework.GWTTestU
 /**
  * Command for login after {@link SessionContextCallback} has finished.
  * 
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public class Login extends AbstractDefaultTestCommand
 {

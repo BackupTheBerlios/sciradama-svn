@@ -62,7 +62,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.application.util.GWTUt
 /**
  * Useful static methods for testing.
  * 
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public final class GWTTestUtil
 {

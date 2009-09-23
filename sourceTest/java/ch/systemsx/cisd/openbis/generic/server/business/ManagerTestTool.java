@@ -41,7 +41,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.Session;
 /**
  * Class with static methods useful for writing test code for Manager classes.
  * 
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public class ManagerTestTool
 {

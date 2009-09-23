@@ -28,7 +28,7 @@ import ch.systemsx.cisd.openbis.generic.shared.basic.dto.Invalidation;
  * Abstract superclass of a generic {@link IProperty} which implements convenient property value
  * expectations. It uses a fluent API approach for its methods to prepare expectations.
  * 
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public abstract class AbstractProperty<C extends IPropertyChecker<?>> implements IProperty<C>
 {

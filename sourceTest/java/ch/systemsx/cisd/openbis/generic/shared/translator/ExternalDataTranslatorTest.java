@@ -42,7 +42,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.SamplePE;
 import ch.systemsx.cisd.openbis.generic.shared.dto.SampleTypePE;
 
 /**
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public class ExternalDataTranslatorTest extends AssertJUnit
 {

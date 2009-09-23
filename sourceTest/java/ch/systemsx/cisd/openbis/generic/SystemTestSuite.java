@@ -45,7 +45,7 @@ import ch.systemsx.cisd.openbis.plugin.generic.client.web.client.application.sam
 import ch.systemsx.cisd.openbis.plugin.generic.client.web.client.application.sample.GenericSampleViewerTest;
 
 /**
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public class SystemTestSuite extends GWTTestSuite
 {

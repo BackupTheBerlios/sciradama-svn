@@ -24,7 +24,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.testframework.GWTTestU
 /**
  * Command for logout after {@link SessionContextCallback} has finished.
  * 
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  * @author Piotr Buczek
  */
 public class Logout extends AbstractDefaultTestCommand

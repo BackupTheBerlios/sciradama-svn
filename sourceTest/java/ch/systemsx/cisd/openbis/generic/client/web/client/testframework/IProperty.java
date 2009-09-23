@@ -22,7 +22,7 @@ package ch.systemsx.cisd.openbis.generic.client.web.client.testframework;
  * {@link IPropertyChecker} of type <code>C</code>.
  * It uses a fluent API approach for its methods to prepare expectations.
  *
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public interface IProperty<C extends IPropertyChecker<?>>
 {

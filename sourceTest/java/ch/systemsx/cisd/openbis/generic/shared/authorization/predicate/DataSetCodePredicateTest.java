@@ -26,7 +26,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.ProjectPE;
 /**
  * 
  *
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public class DataSetCodePredicateTest extends AuthorizationTestCase
 {

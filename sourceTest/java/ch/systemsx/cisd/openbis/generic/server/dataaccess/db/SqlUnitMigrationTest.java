@@ -52,7 +52,7 @@ import ch.systemsx.cisd.dbmigration.postgresql.PostgreSQLDAOFactory;
 /**
  * Test cases for database migration.
  * 
- * @author   Franz-Josef Elmer
+ * @author    Franz-Josef Elmer
  */
 public final class SqlUnitMigrationTest
 {
