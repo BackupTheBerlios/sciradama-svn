@@ -69,7 +69,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.types.SampleTypeCode;
 /**
  * Test cases for corresponding {@link SampleBO} class.
  * 
- * @author  Franz-Josef Elmer
+ * @author   Franz-Josef Elmer
  */
 public final class SampleBOTest extends AbstractBOTest
 {

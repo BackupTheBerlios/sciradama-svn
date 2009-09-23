@@ -28,7 +28,7 @@ import ch.systemsx.cisd.openbis.generic.shared.basic.TechId;
 import ch.systemsx.cisd.openbis.plugin.generic.client.web.client.application.sample.GenericSampleViewer.SampleGenerationInfoCallback;
 
 /**
- * @author  Franz-Josef Elmer
+ * @author   Franz-Josef Elmer
  */
 public class CheckSample extends AbstractDefaultTestCommand implements
         IPropertyChecker<CheckSample>

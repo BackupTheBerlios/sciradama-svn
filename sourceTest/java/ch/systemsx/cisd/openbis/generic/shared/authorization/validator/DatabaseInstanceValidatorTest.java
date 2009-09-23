@@ -23,7 +23,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.PersonPE;
 import ch.systemsx.cisd.openbis.generic.shared.translator.DatabaseInstanceTranslator;
 
 /**
- * @author  Franz-Josef Elmer
+ * @author   Franz-Josef Elmer
  */
 public class DatabaseInstanceValidatorTest extends AuthorizationTestCase
 {

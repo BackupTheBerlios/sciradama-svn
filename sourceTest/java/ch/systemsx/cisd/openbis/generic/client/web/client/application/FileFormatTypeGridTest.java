@@ -33,7 +33,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.testframework.PiggyBac
 import ch.systemsx.cisd.openbis.generic.client.web.client.testframework.Row;
 
 /**
- * @author  Franz-Josef Elmer
+ * @author   Franz-Josef Elmer
  */
 public class FileFormatTypeGridTest extends AbstractGWTTestCase
 {

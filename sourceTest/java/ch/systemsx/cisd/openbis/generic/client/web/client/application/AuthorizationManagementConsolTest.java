@@ -38,7 +38,7 @@ import ch.systemsx.cisd.openbis.generic.shared.basic.dto.RoleSetCode;
 /**
  * A {@link AbstractGWTTestCase} extension to test <i>AMC</i>.
  * 
- * @author  Franz-Josef Elmer
+ * @author   Franz-Josef Elmer
  */
 public class AuthorizationManagementConsolTest extends AbstractGWTTestCase
 {

@@ -43,7 +43,7 @@ import ch.systemsx.cisd.dbmigration.TableColumnDefinition;
 import ch.systemsx.cisd.dbmigration.TableDefinition;
 
 /**
- * @author  Franz-Josef Elmer
+ * @author   Franz-Josef Elmer
  */
 @Friend(toClasses =
     { IDatabaseDumper.class, Parameters.class })

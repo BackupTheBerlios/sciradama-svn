@@ -61,7 +61,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.identifier.SampleIdentifier;
 import ch.systemsx.cisd.openbis.generic.shared.dto.properties.EntityDataType;
 
 /**
- * @author  Franz-Josef Elmer
+ * @author   Franz-Josef Elmer
  */
 @Friend(toClasses = ETLService.class)
 public class ETLServiceTest extends AbstractServerTestCase

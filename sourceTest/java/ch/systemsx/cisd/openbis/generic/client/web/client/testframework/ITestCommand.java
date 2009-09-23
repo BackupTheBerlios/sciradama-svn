@@ -26,7 +26,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.application.AbstractAs
  * A command which will be executed after a successful invocation of
  * {@link AsyncCallback#onSuccess(Object)}.
  * 
- * @author  Franz-Josef Elmer
+ * @author   Franz-Josef Elmer
  */
 public interface ITestCommand
 {

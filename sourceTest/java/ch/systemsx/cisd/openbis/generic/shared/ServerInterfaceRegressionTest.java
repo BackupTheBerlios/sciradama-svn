@@ -19,7 +19,7 @@ package ch.systemsx.cisd.openbis.generic.shared;
 import org.testng.annotations.Test;
 
 /**
- * @author  Franz-Josef Elmer
+ * @author   Franz-Josef Elmer
  */
 public class ServerInterfaceRegressionTest extends RegressionTestCase
 {

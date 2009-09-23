@@ -38,7 +38,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.GroupPE;
 /**
  * Test cases for corresponding {@link GroupDAO} class.
  * 
- * @author  Franz-Josef Elmer
+ * @author   Franz-Josef Elmer
  */
 @Test(groups =
     { "db", "group" })

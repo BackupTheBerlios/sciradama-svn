@@ -20,7 +20,7 @@ package ch.systemsx.cisd.openbis.generic.client.web.client.testframework;
  * Interface for preparing expectation on a property checking class.
  * It uses a fluent API approach for its methods to prepare expectations.
  *
- * @author  Franz-Josef Elmer
+ * @author   Franz-Josef Elmer
  */
 public interface IPropertyChecker<C extends IPropertyChecker<?>>
 {
