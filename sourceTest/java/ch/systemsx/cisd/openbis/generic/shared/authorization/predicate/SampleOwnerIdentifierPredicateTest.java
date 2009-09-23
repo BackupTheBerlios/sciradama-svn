@@ -30,7 +30,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.identifier.SampleOwnerIdentif
 /**
  * 
  *
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class SampleOwnerIdentifierPredicateTest extends AuthorizationTestCase
 {

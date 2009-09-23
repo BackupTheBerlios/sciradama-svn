@@ -19,7 +19,7 @@ package ch.systemsx.cisd.openbis.generic.client.web.client.testframework;
 /**
  * Useful methods.
  * 
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class TestUtil
 {

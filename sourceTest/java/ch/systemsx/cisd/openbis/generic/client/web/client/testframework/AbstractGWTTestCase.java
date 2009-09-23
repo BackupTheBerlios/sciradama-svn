@@ -37,7 +37,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.application.util.GWTUt
 /**
  * Abstract super class of all GWT System Tests.
  * 
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public abstract class AbstractGWTTestCase extends GWTTestCase
 {

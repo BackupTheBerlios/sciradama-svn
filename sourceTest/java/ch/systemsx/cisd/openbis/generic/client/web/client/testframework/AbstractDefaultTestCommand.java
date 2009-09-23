@@ -29,7 +29,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.application.AbstractAs
  * Abstract super class of all test commands which are executed if the set of classes of recent
  * callback objects includes all classes specified in the constructor.
  * 
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public abstract class AbstractDefaultTestCommand extends Assert implements ITestCommand
 {

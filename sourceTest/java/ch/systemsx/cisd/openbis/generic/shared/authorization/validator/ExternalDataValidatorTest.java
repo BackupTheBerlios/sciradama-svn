@@ -27,7 +27,7 @@ import ch.systemsx.cisd.openbis.generic.shared.translator.ExperimentTranslator;
 /**
  * 
  *
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class ExternalDataValidatorTest extends AuthorizationTestCase
 {

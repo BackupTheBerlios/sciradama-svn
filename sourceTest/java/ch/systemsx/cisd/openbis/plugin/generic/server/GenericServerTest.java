@@ -63,7 +63,7 @@ import ch.systemsx.cisd.openbis.plugin.generic.shared.IGenericServer;
 /**
  * Test cases for corresponding {@link GenericServer} class.
  * 
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 @Friend(toClasses = GenericServer.class)
 public final class GenericServerTest extends AbstractServerTestCase

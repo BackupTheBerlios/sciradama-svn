@@ -32,7 +32,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.PersonPE;
 /**
  * 
  *
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class CollectionPredicateTest extends AuthorizationTestCase
 {

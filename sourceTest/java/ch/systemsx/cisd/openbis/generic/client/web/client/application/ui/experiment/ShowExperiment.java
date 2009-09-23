@@ -29,7 +29,7 @@ import ch.systemsx.cisd.openbis.generic.shared.basic.dto.Experiment;
 /**
  * A {@link AbstractDefaultTestCommand} extension for showing a experiment of given code.
  * 
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class ShowExperiment extends AbstractDefaultTestCommand
 {

@@ -24,7 +24,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.PersonPE;
 import ch.systemsx.cisd.openbis.generic.shared.translator.ProjectTranslator;
 
 /**
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class ProjectValidatorTest extends AuthorizationTestCase
 {

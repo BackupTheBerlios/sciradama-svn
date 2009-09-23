@@ -44,7 +44,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.identifier.DatabaseInstanceId
 import ch.systemsx.cisd.openbis.generic.shared.dto.identifier.GroupIdentifier;
 
 /**
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 @Friend(toClasses = RoleWithIdentifier.class)
 public class AuthorizationTestCase extends AssertJUnit

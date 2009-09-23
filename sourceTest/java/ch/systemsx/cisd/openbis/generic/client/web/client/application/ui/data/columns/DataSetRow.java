@@ -22,7 +22,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.testframework.Row;
 import ch.systemsx.cisd.openbis.generic.shared.basic.dto.SourceType;
 
 /**
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class DataSetRow extends Row
 {

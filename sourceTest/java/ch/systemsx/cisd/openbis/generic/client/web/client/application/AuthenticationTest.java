@@ -26,7 +26,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.testframework.WaitFor;
 /**
  * A {@link AbstractGWTTestCase} extension to test login.
  * 
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class AuthenticationTest extends AbstractGWTTestCase
 {

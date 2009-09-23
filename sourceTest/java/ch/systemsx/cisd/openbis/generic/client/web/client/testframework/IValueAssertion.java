@@ -19,7 +19,7 @@ package ch.systemsx.cisd.openbis.generic.client.web.client.testframework;
 /**
  * Interface checking a value of type <code>T</code>.
  *
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public interface IValueAssertion<T>
 {

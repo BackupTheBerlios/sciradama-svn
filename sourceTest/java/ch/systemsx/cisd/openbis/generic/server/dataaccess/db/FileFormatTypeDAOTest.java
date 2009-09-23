@@ -29,7 +29,7 @@ import ch.systemsx.cisd.openbis.generic.shared.dto.FileFormatTypePE;
 /**
  * 
  *
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 @Test(groups =
     { "db", "fileFormatType" })

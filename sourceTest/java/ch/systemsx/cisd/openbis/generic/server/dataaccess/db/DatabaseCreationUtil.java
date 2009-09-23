@@ -33,7 +33,7 @@ import ch.systemsx.cisd.dbmigration.postgresql.DumpPreparator;
 /**
  * Utility methods around database creation.
  * 
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public final class DatabaseCreationUtil
 {

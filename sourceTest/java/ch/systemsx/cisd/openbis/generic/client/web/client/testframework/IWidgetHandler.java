@@ -21,7 +21,7 @@ import com.google.gwt.user.client.ui.Widget;
 /**
  * Handler of {@link Widget} objects when traversing a GWT page.
  *
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public interface IWidgetHandler<W extends Widget>
 {

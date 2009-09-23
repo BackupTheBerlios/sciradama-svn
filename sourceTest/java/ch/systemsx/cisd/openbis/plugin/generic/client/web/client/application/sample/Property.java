@@ -27,7 +27,7 @@ import ch.systemsx.cisd.openbis.generic.shared.basic.dto.Sample;
  * Extends {@link AbstractProperty} with methods for {@link Person} and arrays of generated
  * {@link Sample}.
  * 
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class Property extends AbstractProperty<CheckSample> 
 {

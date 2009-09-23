@@ -25,7 +25,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.testframework.GWTTestU
 /**
  * A {@link AbstractDefaultTestCommand} extension for creating a group.
  * 
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public final class CreateGroup extends CheckTableCommand
 {

@@ -22,7 +22,7 @@ import com.google.gwt.user.client.ui.Widget;
  * Widget handler which picks the first widget having a specified ID. Allows to use regular
  * expression wildcards.
  * 
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  * @author Piotr Buczek
  */
 public class WidgetPicker implements IWidgetHandler<Widget>

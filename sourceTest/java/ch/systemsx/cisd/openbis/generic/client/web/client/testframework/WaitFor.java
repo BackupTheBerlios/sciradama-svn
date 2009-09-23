@@ -21,7 +21,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 /**
  * 
  *
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class WaitFor extends AbstractDefaultTestCommand
 {

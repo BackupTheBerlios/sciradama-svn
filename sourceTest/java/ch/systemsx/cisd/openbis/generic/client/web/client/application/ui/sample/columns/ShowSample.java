@@ -30,7 +30,7 @@ import ch.systemsx.cisd.openbis.generic.shared.basic.dto.Sample;
 /**
  * A {@link AbstractDefaultTestCommand} extension for showing a sample of given code.
  * 
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public final class ShowSample extends AbstractDefaultTestCommand
 {

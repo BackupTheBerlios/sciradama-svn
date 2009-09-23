@@ -22,7 +22,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.application.ui.columns
 import ch.systemsx.cisd.openbis.generic.client.web.client.testframework.RowWithProperties;
 
 /**
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class SampleRow extends RowWithProperties
 {

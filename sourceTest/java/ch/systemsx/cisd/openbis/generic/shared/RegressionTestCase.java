@@ -31,7 +31,7 @@ import ch.systemsx.cisd.common.test.JavaCodeNormalizer;
 import ch.systemsx.cisd.openbis.generic.shared.authorization.annotation.RolesAllowed;
 
 /**
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class RegressionTestCase extends AssertJUnit
 {

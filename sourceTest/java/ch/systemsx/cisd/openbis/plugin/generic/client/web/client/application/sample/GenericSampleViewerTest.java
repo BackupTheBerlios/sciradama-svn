@@ -42,7 +42,7 @@ import ch.systemsx.cisd.openbis.generic.shared.basic.dto.Invalidation;
 /**
  * A {@link AbstractGWTTestCase} extension to test {@link GenericSampleViewer}.
  * 
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class GenericSampleViewerTest extends AbstractGWTTestCase
 {

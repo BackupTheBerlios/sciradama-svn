@@ -29,7 +29,7 @@ import ch.systemsx.cisd.openbis.generic.client.web.client.application.ui.propert
 /**
  * Manager for checking properties based on {@link IValueAssertion} objects.
  *
- * @author Franz-Josef Elmer
+ * @author  Franz-Josef Elmer
  */
 public class PropertyCheckingManager extends Assert
 {
